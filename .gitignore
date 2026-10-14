@@ -1,0 +1,27 @@
+node_modules/
+dist/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# Guest identity documents
+server/uploads/
+
+# Database exports: they contain personal data and password hashes
+database/
+
+# Original full-size photos (not used by the app); keep the credits file
+client/image-backup-original/*
+!client/image-backup-original/IMAGE-SOURCES.txt
+
+# Previous full edition of the report
+documentation/archive/
+
+# OCR language data, downloaded on first use
+server/.ocr-cache/
+*.traineddata
+
+*.log
+.DS_Store

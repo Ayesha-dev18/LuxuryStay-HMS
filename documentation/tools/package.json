@@ -1,0 +1,13 @@
+{
+  "name": "luxurystay-documentation-tools",
+  "private": true,
+  "description": "Builds the LuxuryStay HMS documentation (Word, PDF, screenshots, diagrams).",
+  "scripts": {
+    "diagrams": "node diagrams.js ../diagrams",
+    "docx": "node build-docx.js",
+    "pdf": "cscript //nologo export-pdf.js"
+  },
+  "dependencies": {
+    "docx": "9.11.0"
+  }
+}

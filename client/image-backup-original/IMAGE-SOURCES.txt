@@ -1,0 +1,20 @@
+Replacement hotel images: free-licence photos from Unsplash (unsplash.com/license), cropped to 1536x1024.
+Originals are kept in this folder under the same file names.
+
+hotel-hero.jpg  <-  https://images.unsplash.com/photo-1785910723802-99967d4fa265
+serene-room.jpg  <-  https://images.unsplash.com/photo-1758448755969-8791367cf5c5
+signature-suite.jpg  <-  https://images.unsplash.com/photo-1720582611572-baf85ba10ed3
+royal-residence.jpg  <-  https://images.unsplash.com/photo-1743410973975-c676fa6bf885
+serene-bathroom.jpg  <-  https://images.unsplash.com/photo-1778731660083-60d60e6817ca
+signature-bathroom.jpg  <-  https://images.unsplash.com/photo-1564540579594-0930edb6de43
+royal-bathroom.jpg  <-  https://images.unsplash.com/photo-1776525433347-13ffc965601a
+serene-balcony.jpg  <-  https://images.unsplash.com/photo-1759299983523-d883f6ecf097
+serene-living-area.jpg  <-  https://images.unsplash.com/photo-1776500588044-e42853f74ae4
+signature-living-area.jpg  <-  https://images.unsplash.com/photo-1646974400439-321c4a9240b9
+royal-living-area.jpg  <-  https://images.unsplash.com/photo-1775866914943-ba1415a35afc
+signature-view.jpg  <-  https://images.unsplash.com/photo-1788927796219-35f6c27e6422
+royal-view.jpg  <-  https://images.unsplash.com/photo-1783442619815-943376e2ac6c
+spa-wellness.jpg  <-  https://images.unsplash.com/photo-1676302144341-10563603f99a
+fine-dining.jpg  <-  https://images.unsplash.com/photo-1723465302725-ff46b3e165f9
+private-pool.jpg  <-  https://images.unsplash.com/photo-1784750587673-ec7494c2c2f1
+private-transfer.jpg  <-  https://images.unsplash.com/photo-1764090317565-46fe49fe2a31
