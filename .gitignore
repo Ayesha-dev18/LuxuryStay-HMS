@@ -25,3 +25,6 @@ server/.ocr-cache/
 
 *.log
 .DS_Store
+
+# Private demo login details for the supervisor
+/DEMO_CREDENTIALS.md

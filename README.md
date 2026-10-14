@@ -14,28 +14,65 @@ Full project documentation (an academic report) is in [`documentation/`](documen
 
 ## Contents
 
-1. [Features](#features)
-2. [Technology stack](#technology-stack)
-3. [Roles and permissions](#roles-and-permissions)
-4. [Prerequisites](#prerequisites)
-5. [Installation](#installation)
-6. [Environment variables](#environment-variables)
-7. [Databases](#databases)
-8. [Running locally](#running-locally)
-9. [Demo data and demo accounts](#demo-data-and-demo-accounts)
-10. [Signing in, registering and recovering a password](#signing-in-registering-and-recovering-a-password)
-11. [Creating staff accounts](#creating-staff-accounts)
-12. [API overview](#api-overview)
-13. [Authentication and authorization](#authentication-and-authorization)
-14. [Validation rules](#validation-rules)
-15. [Identity documents](#identity-documents)
-16. [Testing](#testing)
-17. [Production build](#production-build)
-18. [Security notes](#security-notes)
-19. [Known limitations](#known-limitations)
-20. [Troubleshooting](#troubleshooting)
-21. [Project structure](#project-structure)
-22. [Git: first commit and push](#git-first-commit-and-push)
+1. [Project team](#project-team)
+2. [GitHub repository](#github-repository)
+3. [Features](#features)
+4. [Technology stack](#technology-stack)
+5. [Roles and permissions](#roles-and-permissions)
+6. [Prerequisites](#prerequisites)
+7. [Installation](#installation)
+8. [Environment variables](#environment-variables)
+9. [Databases](#databases)
+10. [Running locally](#running-locally)
+11. [Demo data and demo accounts](#demo-data-and-demo-accounts)
+12. [Supervisor demo accounts](#supervisor-demo-accounts)
+13. [Signing in, registering and recovering a password](#signing-in-registering-and-recovering-a-password)
+14. [Creating staff accounts](#creating-staff-accounts)
+15. [API overview](#api-overview)
+16. [Authentication and authorization](#authentication-and-authorization)
+17. [Validation rules](#validation-rules)
+18. [Identity documents](#identity-documents)
+19. [Testing](#testing)
+20. [Production build](#production-build)
+21. [Security notes](#security-notes)
+22. [Known limitations](#known-limitations)
+23. [Troubleshooting](#troubleshooting)
+24. [Project structure](#project-structure)
+25. [Git: first commit and push](#git-first-commit-and-push)
+
+---
+
+## Project team
+
+| No. | Student ID | Name |
+|---|---|---|
+| 1 | Student1561115 | MUHAMMAD TALHA |
+| 2 | Student1561444 | RAJA HARIS |
+| 3 | Student1572235 | NIBRAS KHAN |
+| 4 | Student1547456 | AYESHA |
+| 5 | Student1550000 | MUHAMMAD AHMED |
+| 6 | Student1551197 | YASH RAJ |
+
+The names and student IDs are as recorded in the project report (`documentation/LuxuryStay_HMS_Documentation.docx`).
+
+---
+
+## GitHub repository
+
+| Item | Value |
+|---|---|
+| Repository | [github.com/Ayesha-dev18/LuxuryStay-HMS](https://github.com/Ayesha-dev18/LuxuryStay-HMS) |
+| Owner | `Ayesha-dev18` |
+| Visibility | **Private** |
+| Default branch | `main` |
+
+The repository is private, so only its owner and invited collaborators can open it. To review the code, the supervisor needs **collaborator access**:
+
+1. The owner opens the repository on GitHub, then **Settings → Collaborators → Add people**.
+2. The owner enters the supervisor's GitHub username or email and sends the invitation.
+3. The supervisor accepts the invitation from the email or from [github.com/notifications](https://github.com/notifications), and can then view and clone the repository.
+
+**Read** access is enough to review the code. Login passwords for the demo accounts are not stored in the repository; they are handed over separately (see [Supervisor demo accounts](#supervisor-demo-accounts)).
 
 ---
 
@@ -133,8 +170,10 @@ There are five roles. Each one is enforced by the API on every request; the clie
 
 ## Installation
 
+There is no `package.json` at the project root. The API (`server/`) and the website (`client/`) are separate Node projects, so install the dependencies in each folder:
+
 ```powershell
-git clone <your repository URL> LuxuryStay-HMS
+git clone https://github.com/Ayesha-dev18/LuxuryStay-HMS.git
 cd LuxuryStay-HMS
 
 cd server
@@ -201,7 +240,7 @@ Safety measures in the code:
 
 ## Running locally
 
-Start MongoDB, then use two terminals:
+Start MongoDB, then use two terminals. `npm run dev` runs `nodemon server.js` in `server/` and `vite` in `client/`:
 
 ```powershell
 # Terminal 1: API on http://localhost:5000
@@ -262,7 +301,25 @@ Remove-Item Env:ADMIN_EMAIL, Env:ADMIN_NAME, Env:ADMIN_PASSWORD
 
 - To re-activate one: sign in as the demo administrator, open **Staff**, choose **Edit** and turn on **Account active**.
 - If a demo password is unknown, an administrator can set a new one under **Staff → Edit → Set a new password**.
-- Real administrator and guest accounts are not demo accounts. Their passwords are not documented and must not be changed for testing.
+- Accounts that are not fictional `@demo.luxurystay.test` accounts are not covered by the demo password, including the project owner's administrator account. Their passwords are not documented here and must not be changed for testing.
+
+## Supervisor demo accounts
+
+These sign-ins, one for each role, are for the supervisor's review of the **local development environment**: the development database `luxurystay_dev`, with the website on `http://localhost:5173/auth`. None of them is a production account; the production database `luxurystay` is never used for demonstrations. All five were confirmed to exist in `luxurystay_dev` with the roles shown, and were active on 15 October 2026. The Administrator account was re-checked on the same day: role `admin`, active, not locked.
+
+| Role | Email | Permissions |
+|---|---|---|
+| Administrator | `zainab.mirza@demo.luxurystay.test` (fictional demo administrator, local development only) | Full administration, staff management, settings, reports and system oversight |
+| Manager | `Arif.siddiqui@demo.luxurystay.test` | Front-desk operations, rooms, housekeeping oversight, reports, discounts, reviews and staff-list access |
+| Receptionist | `tariq@luxury.com` | Reservations, check-in and check-out, payments, invoices, enquiries, guest directory and room status |
+| Housekeeping | `nadia@demo.luxurystay.test` | Cleaning tasks, room cleaning status and maintenance tasks |
+| Guest | `ab@luxurystay.com` | Own reservations, invoices, reviews and profile management |
+
+**Passwords are not included in this README.** They are handed over privately in `DEMO_CREDENTIALS.md`, a local file that `.gitignore` excludes, so it is never committed or pushed.
+
+The Administrator sign-in is the fictional demo administrator created with `npm run create-admin` (see [Demo data and demo accounts](#demo-data-and-demo-accounts)). It exists only in `luxurystay_dev`. The project owner's own administrator account is not part of the handover.
+
+Email addresses are stored in lower case, so `Arif.siddiqui@demo.luxurystay.test` can be typed with either capitalisation. The permissions above follow `server/config/permissions.js` (see [Roles and permissions](#roles-and-permissions)).
 
 ## Signing in, registering and recovering a password
 
@@ -466,6 +523,7 @@ npm start
 ## Security notes
 
 - **Never commit:**
+  - `DEMO_CREDENTIALS.md`, the private list of demo login passwords;
   - `.env` files (`server/.env`, `server/.env.*` except `.env.example`), which includes `server/.env.demo-accounts`;
   - `server/uploads/`;
   - the `database/` exports, which contain personal data and password hashes.
@@ -542,18 +600,15 @@ LuxuryStay-HMS/
 
 ## Git: first commit and push
 
-This folder isn't a Git repository yet. When you are ready:
+The project is a Git repository on branch `main`, connected to `origin` (`https://github.com/Ayesha-dev18/LuxuryStay-HMS.git`). The first commit (`996840f`) has been pushed. To publish later changes:
 
 ```powershell
 cd C:\Users\ESHOP\Downloads\LuxuryStay-HMS
-git init
-git add .
-git status            # check: no .env files, no database/, no uploads/, no node_modules/
+git status            # check: no .env files, DEMO_CREDENTIALS.md, database/, uploads/ or node_modules/
+git add <changed files>
 git diff --cached --stat
-git commit -m "LuxuryStay HMS: hotel management system with documentation"
-git branch -M main
-git remote add origin <your repository URL>
-git push -u origin main
+git commit -m "<message>"
+git push
 ```
 
-Before pushing, confirm that `git ls-files | Select-String -Pattern "\.env$|\.env\.|database/|uploads/"` lists only `server/.env.example` and `client/.env.example`.
+Before pushing, confirm that `git ls-files | Select-String -Pattern "\.env$|\.env\.|database/|uploads/|DEMO_CREDENTIALS"` lists only `server/.env.example` and `client/.env.example`. Never use `git add -f` on ignored files.
